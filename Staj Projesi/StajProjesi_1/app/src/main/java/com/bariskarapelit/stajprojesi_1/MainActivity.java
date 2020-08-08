@@ -31,6 +31,10 @@ public class MainActivity extends AppCompatActivity
         dislike=findViewById(R.id.imageView2);
         like=findViewById(R.id.imageView3);
 
+        circle.setVisibility(View.INVISIBLE);
+        dislike.setVisibility(View.INVISIBLE);
+        like.setVisibility(View.INVISIBLE);
+
         button.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -53,7 +57,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 Toast.makeText(MainActivity.this,"Like",Toast.LENGTH_LONG).show();
-                findViewById(R.id.imageView).
+                findViewById(R.id.imageView);
             }
         });
 
