@@ -1,5 +1,6 @@
 package com.bariskarapelit.stajprojesi_1;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -7,6 +8,7 @@ import android.widget.GridLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,6 +17,9 @@ public class MainActivity extends AppCompatActivity
     ImageButton button,button1,button2;
     GridLayout gridLayout;
     ImageView circle,dislike,like;
+    VideoView videoView;
+    String videoPath;
+    Uri uri;
 
 
     @Override
@@ -26,6 +31,7 @@ public class MainActivity extends AppCompatActivity
         button= findViewById(R.id.circle);
         button1=findViewById(R.id.dislike);
         button2=findViewById(R.id.like);
+       // videoView=findViewById(R.id.vi)
 
         circle=findViewById(R.id.imageView);
         dislike=findViewById(R.id.imageView2);
@@ -34,6 +40,11 @@ public class MainActivity extends AppCompatActivity
         circle.setVisibility(View.INVISIBLE);
         dislike.setVisibility(View.INVISIBLE);
         like.setVisibility(View.INVISIBLE);
+       // videoView.setVisibility(View.INVISIBLE);
+
+
+
+
 
         button.setOnClickListener(new View.OnClickListener()
         {
@@ -58,6 +69,7 @@ public class MainActivity extends AppCompatActivity
             {
                 Toast.makeText(MainActivity.this,"Like",Toast.LENGTH_LONG).show();
                 findViewById(R.id.imageView);
+
             }
         });
 
