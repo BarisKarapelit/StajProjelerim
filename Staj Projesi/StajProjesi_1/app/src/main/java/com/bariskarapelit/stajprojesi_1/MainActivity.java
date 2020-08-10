@@ -16,6 +16,8 @@ import com.twilio.video.CameraCapturer;
 import com.twilio.video.LocalVideoTrack;
 import com.twilio.video.VideoTextureView;
 
+import pl.droidsonroids.gif.GifImageView;
+
 public class MainActivity extends AppCompatActivity
 {
     ImageButton button,button1,button2;
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity
     String videoPath;
     VideoTextureView  videoTextureView;
     Uri uri;
+    GifImageView gifImageView;
 
 
     @Override
@@ -36,19 +39,23 @@ public class MainActivity extends AppCompatActivity
         button= findViewById(R.id.circle);
         button1=findViewById(R.id.dislike);
         button2=findViewById(R.id.like);
-       // videoView=findViewById(R.id.vi)
+
+
+
 
         circle=findViewById(R.id.imageView);
         dislike=findViewById(R.id.imageView2);
         like=findViewById(R.id.imageView3);
 
+        gifImageView= findViewById(R.id.gift);
+
         circle.setVisibility(View.INVISIBLE);
         dislike.setVisibility(View.INVISIBLE);
         like.setVisibility(View.INVISIBLE);
-        CameraCapturer cameraCapturer = new CameraCapturer(MainActivity.this, CameraCapturer.CameraSource.FRONT_CAMERA);
-        LocalVideoTrack localVideoTrack = LocalVideoTrack.create(MainActivity.this, true, cameraCapturer);
-        videoView=findViewById(R.id.video_view_top_right);
 
+        //videoView=findViewById(R.id.video_view_top_right);
+        //Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.video);
+        //videoView.setVideoURI(uri);
 
 
 
@@ -62,6 +69,8 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 Toast.makeText(MainActivity.this,"Circle",Toast.LENGTH_LONG).show();
+
+                gifImageView.setImageResource(R.drawable.daire);
             }
         });
         button1.setOnClickListener(new View.OnClickListener()
@@ -70,6 +79,9 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 Toast.makeText(MainActivity.this,"Dislike",Toast.LENGTH_LONG).show();
+
+                gifImageView.setImageResource(R.drawable.dislike);
+
             }
         });
         button2.setOnClickListener(new View.OnClickListener()
@@ -78,7 +90,8 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 Toast.makeText(MainActivity.this,"Like",Toast.LENGTH_LONG).show();
-                findViewById(R.id.imageView);
+
+                gifImageView.setImageResource(R.drawable.like);
 
             }
         });

@@ -9,9 +9,6 @@
     tools:context=".MainActivity">
 
 
-
-
-
     <com.twilio.video.VideoTextureView
         android:id="@+id/video_view_top_right"
         android:layout_width="0dp"
@@ -23,6 +20,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gift"
+        android:layout_width="106dp"
+        android:layout_height="106dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="492dp"
+        android:layout_marginEnd="168dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -62,9 +71,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="37dp"
+        android:layout_marginBottom="4dp"
         android:background="@mipmap/launch1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/dislike"
+        app:layout_constraintHorizontal_bias="0.574"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
@@ -74,6 +85,7 @@
         android:background="@mipmap/launch2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"></ImageButton>
 
     <ImageButton
@@ -81,12 +93,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="60dp"
+        android:layout_marginBottom="4dp"
         android:background="@mipmap/launch3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.866"
+        app:layout_constraintHorizontal_bias="0.447"
         app:layout_constraintStart_toEndOf="@+id/dislike"></ImageButton>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
