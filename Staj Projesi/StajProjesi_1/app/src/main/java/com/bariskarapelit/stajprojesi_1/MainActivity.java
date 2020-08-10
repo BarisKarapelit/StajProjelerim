@@ -12,6 +12,10 @@ import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.twilio.video.CameraCapturer;
+import com.twilio.video.LocalVideoTrack;
+import com.twilio.video.VideoTextureView;
+
 public class MainActivity extends AppCompatActivity
 {
     ImageButton button,button1,button2;
@@ -19,6 +23,7 @@ public class MainActivity extends AppCompatActivity
     ImageView circle,dislike,like;
     VideoView videoView;
     String videoPath;
+    VideoTextureView  videoTextureView;
     Uri uri;
 
 
@@ -40,7 +45,12 @@ public class MainActivity extends AppCompatActivity
         circle.setVisibility(View.INVISIBLE);
         dislike.setVisibility(View.INVISIBLE);
         like.setVisibility(View.INVISIBLE);
-       // videoView.setVisibility(View.INVISIBLE);
+        CameraCapturer cameraCapturer = new CameraCapturer(MainActivity.this, CameraCapturer.CameraSource.FRONT_CAMERA);
+        LocalVideoTrack localVideoTrack = LocalVideoTrack.create(MainActivity.this, true, cameraCapturer);
+        videoView=findViewById(R.id.video_view_top_right);
+
+
+
 
 
 
