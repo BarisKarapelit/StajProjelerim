@@ -2,6 +2,7 @@ package com.bariskarapelit.stajprojesi_1;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
@@ -11,12 +12,14 @@ import android.widget.Toast;
 import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.view.KeyEvent;
 import com.twilio.video.CameraCapturer;
 import com.twilio.video.LocalVideoTrack;
 import com.twilio.video.VideoTextureView;
 
 import pl.droidsonroids.gif.GifImageView;
+import android.view.MotionEvent;
+import static androidx.core.view.ViewCompat.getX;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -29,6 +32,17 @@ public class MainActivity extends AppCompatActivity
     Uri uri;
     GifImageView gifImageView;
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        int x = (int)event.getX();
+        int y = (int)event.getY();
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+            case MotionEvent.ACTION_MOVE:
+            case MotionEvent.ACTION_UP:
+        }
+        return false;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -56,6 +70,8 @@ public class MainActivity extends AppCompatActivity
         //videoView=findViewById(R.id.video_view_top_right);
         //Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.video);
         //videoView.setVideoURI(uri);
+
+        
 
 
 
