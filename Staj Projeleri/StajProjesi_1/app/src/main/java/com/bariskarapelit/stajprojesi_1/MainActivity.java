@@ -1,7 +1,9 @@
 package com.bariskarapelit.stajprojesi_1;
 
+import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -18,10 +20,11 @@ import com.twilio.video.LocalVideoTrack;
 import com.twilio.video.VideoTextureView;
 
 import pl.droidsonroids.gif.GifImageView;
-import android.view.MotionEvent;
+import android.view.MotionEvent.*;
 import static androidx.core.view.ViewCompat.getX;
+import android.widget.LinearLayout.LayoutParams;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends Activity
 {
     ImageButton button,button1,button2;
     GridLayout gridLayout;
@@ -31,18 +34,11 @@ public class MainActivity extends AppCompatActivity
     VideoTextureView  videoTextureView;
     Uri uri;
     GifImageView gifImageView;
+    MotionEvent event;
+    private LayoutParams layoutParams;
+    int windowwidth;
+    int windowheight;
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        int x = (int)event.getX();
-        int y = (int)event.getY();
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-            case MotionEvent.ACTION_MOVE:
-            case MotionEvent.ACTION_UP:
-        }
-        return false;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -56,12 +52,13 @@ public class MainActivity extends AppCompatActivity
 
 
 
-
         circle=findViewById(R.id.imageView);
         dislike=findViewById(R.id.imageView2);
         like=findViewById(R.id.imageView3);
 
         gifImageView= findViewById(R.id.gift);
+
+
 
         circle.setVisibility(View.INVISIBLE);
         dislike.setVisibility(View.INVISIBLE);
@@ -71,8 +68,42 @@ public class MainActivity extends AppCompatActivity
         //Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.video);
         //videoView.setVideoURI(uri);
 
-        
+        windowwidth = getWindowManager().getDefaultDisplay().getWidth();
+        windowheight = getWindowManager().getDefaultDisplay().getHeight();
 
+        gifImageView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+
+
+                LayoutParams layoutParams = (LayoutParams) gifImageView.getLayoutParams();
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        int x_cord = (int) event.getRawX();
+                        int y_cord = (int) event.getRawY();
+
+                        if (x_cord > windowwidth) {
+                            x_cord = windowwidth;
+                        }
+                        if (y_cord > windowheight) {
+                            y_cord = windowheight;
+                        }
+
+                        layoutParams.leftMargin = x_cord - 25;
+                        layoutParams.topMargin = y_cord - 75;
+
+                        gifImageView.setLayoutParams(layoutParams);
+                        break;
+                    default:
+                        break;
+                }
+
+
+                return true;
+            }
+        });
 
 
 
