@@ -3,26 +3,19 @@ package com.bariskarapelit.stajprojesi_1;
 import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
-import androidx.appcompat.app.AppCompatActivity;
-import android.view.KeyEvent;
-import com.twilio.video.CameraCapturer;
-import com.twilio.video.LocalVideoTrack;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import com.twilio.video.VideoTextureView;
 
 import pl.droidsonroids.gif.GifImageView;
-import android.view.MotionEvent.*;
-import static androidx.core.view.ViewCompat.getX;
-import android.widget.LinearLayout.LayoutParams;
 
 public class MainActivity extends Activity
 {
@@ -34,10 +27,13 @@ public class MainActivity extends Activity
     VideoTextureView  videoTextureView;
     Uri uri;
     GifImageView gifImageView;
-    MotionEvent event;
-    private LayoutParams layoutParams;
+
+
     int windowwidth;
     int windowheight;
+
+    private ConstraintLayout.LayoutParams layoutParams;  //linear layout yaptığın zaman buraya dikkat et
+
 
 
     @Override
@@ -73,10 +69,10 @@ public class MainActivity extends Activity
 
         gifImageView.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public boolean onTouch(View view, MotionEvent event) {
 
 
-                LayoutParams layoutParams = (LayoutParams) gifImageView.getLayoutParams();
+                ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) gifImageView.getLayoutParams();
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         break;
@@ -91,8 +87,8 @@ public class MainActivity extends Activity
                             y_cord = windowheight;
                         }
 
-                        layoutParams.leftMargin = x_cord - 25;
-                        layoutParams.topMargin = y_cord - 75;
+                        layoutParams.leftMargin = x_cord - 53;
+                        layoutParams.topMargin = y_cord - 53;
 
                         gifImageView.setLayoutParams(layoutParams);
                         break;
@@ -142,6 +138,9 @@ public class MainActivity extends Activity
 
             }
         });
+
+
+        //like butonunu haret ettir
 
 
 
