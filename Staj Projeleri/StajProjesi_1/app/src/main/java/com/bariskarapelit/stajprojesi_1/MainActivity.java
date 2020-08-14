@@ -3,25 +3,29 @@ package com.bariskarapelit.stajprojesi_1;
 import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.GridLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.twilio.video.VideoTextureView;
 
 import pl.droidsonroids.gif.GifImageView;
 
-public class MainActivity extends Activity
+public class MainActivity extends AppCompatActivity
 {
-    ImageButton button,button1,button2;
-    GridLayout gridLayout;
-    ImageView circle,dislike,like;
+
+    ImageButton circleButton,likeButton,dislikeButton;
     VideoView videoView;
     String videoPath;
     VideoTextureView  videoTextureView;
@@ -32,8 +36,9 @@ public class MainActivity extends Activity
     int windowwidth;
     int windowheight;
 
-    private ConstraintLayout.LayoutParams layoutParams;  //linear layout yaptığın zaman buraya dikkat et
+     //linear layout yaptığın zaman buraya dikkat et
 
+    Handler handler;
 
 
     @Override
@@ -42,71 +47,43 @@ public class MainActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button= findViewById(R.id.circle);
-        button1=findViewById(R.id.dislike);
-        button2=findViewById(R.id.like);
 
-
-
-        circle=findViewById(R.id.imageView);
-        dislike=findViewById(R.id.imageView2);
-        like=findViewById(R.id.imageView3);
 
         gifImageView= findViewById(R.id.gift);
 
 
 
-        circle.setVisibility(View.INVISIBLE);
-        dislike.setVisibility(View.INVISIBLE);
-        like.setVisibility(View.INVISIBLE);
+        FrameLayout frameLayout = findViewById(R.id.frame_layout);
+        LinearLayout linearLayout= findViewById(R.id.linearlayout);
 
-        //videoView=findViewById(R.id.video_view_top_right);
-        //Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.video);
-        //videoView.setVideoURI(uri);
+        circleButton=findViewById(R.id.circle);
+        dislikeButton=findViewById(R.id.dislike);
+        likeButton=findViewById(R.id.like);
 
-        windowwidth = getWindowManager().getDefaultDisplay().getWidth();
-        windowheight = getWindowManager().getDefaultDisplay().getHeight();
-
-        gifImageView.setOnTouchListener(new View.OnTouchListener() {
+        frameLayout.setOnTouchListener(new View.OnTouchListener()
+        {
             @Override
-            public boolean onTouch(View view, MotionEvent event) {
+            public boolean onTouch(View view, MotionEvent event)
+            {
+                if (event.getAction() == MotionEvent.ACTION_DOWN)
+                {
+                    float xCor = event.getX();
+                    float yCor = event.getY();
+                    System.out.println("Touch coordinates : " +
+                            String.valueOf(event.getX()) + "x" + String.valueOf(event.getY()));
 
+                    gifImageView.setVisibility(View.VISIBLE);
+                    gifImageView.setX(xCor);
+                    gifImageView.setY(yCor);
 
-                ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) gifImageView.getLayoutParams();
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        break;
-                    case MotionEvent.ACTION_MOVE:
-                        int x_cord = (int) event.getRawX();
-                        int y_cord = (int) event.getRawY();
-
-                        if (x_cord > windowwidth) {
-                            x_cord = windowwidth;
-                        }
-                        if (y_cord > windowheight) {
-                            y_cord = windowheight;
-                        }
-
-                        layoutParams.leftMargin = x_cord - 53;
-                        layoutParams.topMargin = y_cord - 53;
-
-                        gifImageView.setLayoutParams(layoutParams);
-                        break;
-                    default:
-                        break;
                 }
-
-
-                return true;
+                return false;
             }
         });
 
 
 
-
-
-
-        button.setOnClickListener(new View.OnClickListener()
+        circleButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
@@ -116,7 +93,8 @@ public class MainActivity extends Activity
                 gifImageView.setImageResource(R.drawable.daire);
             }
         });
-        button1.setOnClickListener(new View.OnClickListener()
+
+        dislikeButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
@@ -124,10 +102,9 @@ public class MainActivity extends Activity
                 Toast.makeText(MainActivity.this,"Dislike",Toast.LENGTH_LONG).show();
 
                 gifImageView.setImageResource(R.drawable.dislike);
-
             }
         });
-        button2.setOnClickListener(new View.OnClickListener()
+        likeButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
@@ -140,11 +117,16 @@ public class MainActivity extends Activity
         });
 
 
-        //like butonunu haret ettir
 
 
 
+
+        //videoView=findViewById(R.id.video_view_top_right);
+        //Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.video);
+        //videoView.setVideoURI(uri);
 
 
     }
+
+
 }

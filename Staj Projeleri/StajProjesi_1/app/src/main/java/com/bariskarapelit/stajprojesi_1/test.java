@@ -4,11 +4,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.GridLayout;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,7 +34,7 @@ public class test extends AppCompatActivity
         videoview.setVideoURI(uri);
         videoview.start();
 
-        gifImageView = findViewById(R.id.gif);
+        gifImageView = findViewById(R.id.gift);
 
 
 
