@@ -76,6 +76,10 @@ public class MainActivity extends AppCompatActivity
                     gifImageView.setX(xCor);
                     gifImageView.setY(yCor);
 
+                }else  if (event.getAction()== MotionEvent.ACTION_DOWN)
+
+                {
+
                 }
                 return false;
             }
