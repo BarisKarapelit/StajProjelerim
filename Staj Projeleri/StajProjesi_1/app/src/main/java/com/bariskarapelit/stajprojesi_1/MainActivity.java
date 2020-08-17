@@ -3,6 +3,7 @@ package com.bariskarapelit.stajprojesi_1;
 import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity
     Uri uri;
     GifImageView gifImageView;
 
+
+    CountDownTimer waitTimer = null;
 
     int windowwidth;
     int windowheight;
@@ -76,9 +79,21 @@ public class MainActivity extends AppCompatActivity
                     gifImageView.setX(xCor);
                     gifImageView.setY(yCor);
 
-                }else  if (event.getAction()== MotionEvent.ACTION_DOWN)
+                    if(waitTimer != null)
+                    {
+                        waitTimer.cancel();
+                        waitTimer = null;
+                    }
+                    waitTimer = new CountDownTimer(5000, 1000) {
 
-                {
+                        public void onTick(long millisUntilFinished) {}
+                        public void onFinish()
+                        {
+                            gifImageView.setVisibility(View.INVISIBLE);
+                            waitTimer.cancel();
+                            waitTimer = null;
+                        }
+                    }.start();
 
                 }
                 return false;
