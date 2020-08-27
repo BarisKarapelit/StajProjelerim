@@ -45,7 +45,41 @@ public class MainActivity extends AppCompatActivity
             @Override
             public View onCreateComponent() {
                 imageView = new ImageView(root.getContext());
-                imageView.setImageResource();
+                
+                circleButton.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View view)
+                    {
+                        Toast.makeText(MainActivity.this,"Circle",Toast.LENGTH_LONG).show();
+                        imageView.setImageResource(R.drawable.circlepng);
+
+
+                    }
+                });
+
+                dislikeButton.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View view)
+                    {
+                        Toast.makeText(MainActivity.this,"Dislike",Toast.LENGTH_LONG).show();
+                        imageView.setImageResource(R.drawable.circlepng);
+
+
+                    }
+                });
+                likeButton.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View view)
+                    {
+                        Toast.makeText(MainActivity.this,"Like",Toast.LENGTH_LONG).show();
+
+                        imageView.setImageResource(R.drawable.circlepng);
+
+                    }
+                });
 
                 return imageView;
             }
@@ -53,40 +87,7 @@ public class MainActivity extends AppCompatActivity
 
         multiTouchControl.startListener();
 
-        circleButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Toast.makeText(MainActivity.this,"Circle",Toast.LENGTH_LONG).show();
-                imageView.setImageResource(R.drawable.circlepng);
 
-
-            }
-        });
-
-        dislikeButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Toast.makeText(MainActivity.this,"Dislike",Toast.LENGTH_LONG).show();
-                imageView.setImageResource(R.drawable.circlepng);
-
-
-            }
-        });
-        likeButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Toast.makeText(MainActivity.this,"Like",Toast.LENGTH_LONG).show();
-
-                imageView.setImageResource(R.drawable.circlepng);
-
-            }
-        });
 
     }
 }
