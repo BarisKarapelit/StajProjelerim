@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity
     int windowwidth;
     int windowheight;
 
-     //linear layout yaptığın zaman buraya dikkat et
+
 
     Handler handler;
 
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity
                         waitTimer.cancel();
                         waitTimer = null;
                     }
-                    waitTimer = new CountDownTimer(1000, 1000)
+                    waitTimer = new CountDownTimer(500, 1000)
                     {
 
                         public void onTick(long millisUntilFinished) {}
