@@ -84,7 +84,8 @@ public class MainActivity extends AppCompatActivity
                         waitTimer.cancel();
                         waitTimer = null;
                     }
-                    waitTimer = new CountDownTimer(5000, 1000) {
+                    waitTimer = new CountDownTimer(1000, 1000)
+                    {
 
                         public void onTick(long millisUntilFinished) {}
                         public void onFinish()
@@ -109,7 +110,7 @@ public class MainActivity extends AppCompatActivity
             {
                 Toast.makeText(MainActivity.this,"Circle",Toast.LENGTH_LONG).show();
 
-                gifImageView.setImageResource(R.drawable.daire);
+                gifImageView.setImageResource(R.drawable.circle);
             }
         });
 
@@ -120,7 +121,8 @@ public class MainActivity extends AppCompatActivity
             {
                 Toast.makeText(MainActivity.this,"Dislike",Toast.LENGTH_LONG).show();
 
-                gifImageView.setImageResource(R.drawable.dislike);
+                gifImageView.setImageResource(R.drawable.dislikesn);
+
             }
         });
         likeButton.setOnClickListener(new View.OnClickListener()
@@ -130,7 +132,7 @@ public class MainActivity extends AppCompatActivity
             {
                 Toast.makeText(MainActivity.this,"Like",Toast.LENGTH_LONG).show();
 
-                gifImageView.setImageResource(R.drawable.like);
+                gifImageView.setImageResource(R.drawable.likesn);
 
             }
         });
