@@ -10,18 +10,33 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import com.twilio.video.CameraCapturer;
+import com.twilio.video.LocalVideoTrack;
 import com.twilio.video.VideoTextureView;
 
 public class MainActivity extends AppCompatActivity
 {
+
+
+
+    private static final int CAMERA_PERMISSION_REQUEST_CODE = 100;
+
+    private VideoTextureView localVideoView;
+    private ImageView snapshotImageView;
+    private TextView tapForSnapshotTextView;
+    private SnapshotVideoRenderer snapshotVideoRenderer;
+    private LocalVideoTrack localVideoTrack;
+
+
+
     ImageButton circleButton,likeButton,dislikeButton;
-    VideoView videoView;
-    String videoPath;
+
     VideoTextureView videoTextureView;
-    Uri uri;
+
     ImageView imageView ;
 
 
@@ -42,7 +57,7 @@ public class MainActivity extends AppCompatActivity
 
 
 
-        //Burası defult resim. Butonlara tıklamadğında ilk olarak varsayılan olarka koaycağınız resim olacak.
+
         imageView.setImageResource(R.drawable.circlepng);
 
 
@@ -73,6 +88,17 @@ public class MainActivity extends AppCompatActivity
         multiTouchControl.startListener();
 
         setupButtons();
+    }
+    private void addVideo() {
+        localVideoTrack = LocalVideoTrack.create(this, true, new CameraCapturer(this,
+                CameraCapturer.CameraSource.FRONT_CAMERA, null));
+        snapshotVideoRenderer = new SnapshotVideoRenderer(snapshotImageView);
+        localVideoTrack.addRenderer(localVideoView);
+        localVideoTrack.addRenderer(snapshotVideoRenderer);
+        localVideoView.setOnClickListener(v -> {
+            tapForSnapshotTextView.setVisibility(View.GONE);
+            snapshotVideoRenderer.takeSnapshot();
+        });
     }
 
     private void setupButtons(){
