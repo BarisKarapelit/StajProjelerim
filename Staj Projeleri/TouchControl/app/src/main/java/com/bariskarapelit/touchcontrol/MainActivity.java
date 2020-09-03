@@ -17,7 +17,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.VideoView;
+import com.twilio.video.VideoView;
 
 import com.twilio.video.CameraCapturer;
 import com.twilio.video.LocalVideoTrack;
@@ -129,8 +129,7 @@ public class MainActivity extends AppCompatActivity
         localVideoTrack.addRenderer((VideoRenderer) localVideoView);
         localVideoTrack.addRenderer(snapshotVideoRenderer);
         localVideoView.setOnClickListener(v -> {
-            tapForSnapshotTextView.setVisibility(View.GONE);
-            snapshotVideoRenderer.takeSnapshot();
+
         });
     }
 
