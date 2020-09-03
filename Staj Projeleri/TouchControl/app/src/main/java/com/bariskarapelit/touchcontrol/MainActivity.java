@@ -1,8 +1,13 @@
 package com.bariskarapelit.touchcontrol;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +21,7 @@ import android.widget.VideoView;
 
 import com.twilio.video.CameraCapturer;
 import com.twilio.video.LocalVideoTrack;
+import com.twilio.video.VideoRenderer;
 import com.twilio.video.VideoTextureView;
 
 public class MainActivity extends AppCompatActivity
@@ -25,7 +31,7 @@ public class MainActivity extends AppCompatActivity
 
     private static final int CAMERA_PERMISSION_REQUEST_CODE = 100;
 
-    private VideoTextureView localVideoView;
+    private VideoView localVideoView;
     private ImageView snapshotImageView;
     private TextView tapForSnapshotTextView;
     private SnapshotVideoRenderer snapshotVideoRenderer;
@@ -52,15 +58,8 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         imageView = new ImageView(this);
 
-
-
-
-
-
-
         imageView.setImageResource(R.drawable.circlepng);
-
-
+        localVideoView = findViewById(R.id.local_video);
 
         final FrameLayout frameLayout = findViewById(R.id.frame_layout);
         LinearLayout linearLayout= findViewById(R.id.linearlayout);
@@ -71,7 +70,11 @@ public class MainActivity extends AppCompatActivity
 
         videoTextureView=findViewById(R.id.video_view_top_right);
 
-
+        if (!checkPermissionForCamera()) {
+            requestPermissionForCamera();
+        } else {
+            addVideo();
+        }
 
 
         //Burdaki hangi viewi dinleyeceği hocam.
@@ -89,17 +92,48 @@ public class MainActivity extends AppCompatActivity
 
         setupButtons();
     }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        if (requestCode == CAMERA_PERMISSION_REQUEST_CODE) {
+            boolean cameraPermissionGranted = true;
+
+            for (int grantResult : grantResults) {
+                cameraPermissionGranted &= grantResult == PackageManager.PERMISSION_GRANTED;
+            }
+
+            if (cameraPermissionGranted) {
+                addVideo();
+            } else {
+                Toast.makeText(this,
+                        R.string.permissions_needed,
+                        Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+    @Override
+    protected void onDestroy() {
+        localVideoTrack.removeRenderer((VideoRenderer) localVideoView);
+        localVideoTrack.removeRenderer(snapshotVideoRenderer);
+        localVideoTrack.release();
+        localVideoTrack = null;
+        super.onDestroy();
+    }
     private void addVideo() {
         localVideoTrack = LocalVideoTrack.create(this, true, new CameraCapturer(this,
                 CameraCapturer.CameraSource.FRONT_CAMERA, null));
         snapshotVideoRenderer = new SnapshotVideoRenderer(snapshotImageView);
-        localVideoTrack.addRenderer(localVideoView);
+        localVideoTrack.addRenderer((VideoRenderer) localVideoView);
         localVideoTrack.addRenderer(snapshotVideoRenderer);
         localVideoView.setOnClickListener(v -> {
             tapForSnapshotTextView.setVisibility(View.GONE);
             snapshotVideoRenderer.takeSnapshot();
         });
     }
+
 
     private void setupButtons(){
         circleButton.setOnClickListener(new View.OnClickListener()
@@ -140,5 +174,12 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
-
+    private boolean checkPermissionForCamera(){
+        int resultCamera = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
+        return resultCamera == PackageManager.PERMISSION_GRANTED;
+    }
+    private void requestPermissionForCamera(){
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA},
+                CAMERA_PERMISSION_REQUEST_CODE);
+    }
 }

@@ -14,10 +14,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:tviMirror="true"
-            app:tviOverlaySurface="true"
+            app:tviOverlaySurface="true">
+
+        </com.twilio.video.VideoTextureView>
+            <com.twilio.video.VideoView
+            android:id="@+id/local_video"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
 
 
             />
+
 
 
         <LinearLayout
