@@ -61,14 +61,12 @@ public class MainActivity extends AppCompatActivity
         imageView.setImageResource(R.drawable.circlepng);
         localVideoView = findViewById(R.id.local_video);
 
-        final FrameLayout frameLayout = findViewById(R.id.frame_layout);
+        final FrameLayout frameLayout = findViewById(R.id.frame_layout1);
         LinearLayout linearLayout= findViewById(R.id.linearlayout);
 
         circleButton=findViewById(R.id.circle);
         dislikeButton=findViewById(R.id.dislike);
         likeButton=findViewById(R.id.like);
-
-        videoTextureView=findViewById(R.id.video_view_top_right);
 
         if (!checkPermissionForCamera()) {
             requestPermissionForCamera();
