@@ -14,14 +14,7 @@
             android:id="@+id/local_video"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-        <com.twilio.video.VideoTextureView
-            android:id="@+id/video_view_top_right"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:tviMirror="true"
-            app:tviOverlaySurface="true">
 
-        </com.twilio.video.VideoTextureView>
         <FrameLayout
             android:id="@+id/frame_layout1"
             android:layout_width="match_parent"
@@ -51,7 +44,7 @@
                 android:layout_height="51dp"
                 android:layout_marginRight="50dp"
 
-                android:background="@drawable/circlexml" />
+                android:background="@drawable/ic_yuvarlak_ici_bos" />
 
 
             <ImageButton

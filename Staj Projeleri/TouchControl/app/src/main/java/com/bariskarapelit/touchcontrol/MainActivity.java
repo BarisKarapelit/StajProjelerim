@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity
     ImageView imageView ;
 
 
-    int selectedImage = R.drawable.ic_circle;
+    int selectedImage = R.drawable.ic_yuvarlak_ici_bos;
 
 
 
@@ -169,7 +169,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 Toast.makeText(MainActivity.this,"Circle",Toast.LENGTH_LONG).show();
-              selectedImage = R.drawable.ic_circle;
+              selectedImage = R.drawable.ic_yuvarlak_ici_bos;
 
 
             }
@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 Toast.makeText(MainActivity.this,"Dislike",Toast.LENGTH_LONG).show();
-                selectedImage = R.drawable.ic_dislike;
+                selectedImage = R.drawable.ic_dislike3;
 
 
 
@@ -194,7 +194,7 @@ public class MainActivity extends AppCompatActivity
             {
                 Toast.makeText(MainActivity.this,"Like",Toast.LENGTH_LONG).show();
 
-                selectedImage = R.drawable.ic_mavilike;
+                selectedImage = R.drawable.ic_like3;
 
 
             }

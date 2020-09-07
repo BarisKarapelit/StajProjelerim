@@ -1,0 +1,24 @@
+
+V	java:S110 "<This class has 9 parents which is greater than 5 authorized.(ù ®Íúÿÿÿÿ
+C
+java:S1604Y"(Make this anonymous inner class a lambda(¿ÜŞ¾üÿÿÿÿ
+>
+java:S1604”"(Make this anonymous inner class a lambda(»£¢p
+?
+java:S1604¦"(Make this anonymous inner class a lambda(‹— ƒ
+?
+java:S1604²"(Make this anonymous inner class a lambda(¬İùÔ
+?
+java:S1604¾"(Make this anonymous inner class a lambda(ÅÍÏ
+G
+java:S1128",Remove this unused import 'android.net.Uri'.(òêû‘ıÿÿÿÿ
+C
+java:S16591"(Declare "likeButton" on a separate line.(€À’ıûÿÿÿÿ
+F
+java:S16591"+Declare "dislikeButton" on a separate line.(€À’ıûÿÿÿÿ
+V
+java:S1854J"@Remove this useless assignment to local variable "linearLayout".(Èö˜Œ
+G
+java:S1481J"1Remove this unused "linearLayout" local variable.(Èö˜Œ
+U
+java:S1068)":Remove this unused "tapForSnapshotTextView" private field.(ßÍ€¼ûÿÿÿÿ
