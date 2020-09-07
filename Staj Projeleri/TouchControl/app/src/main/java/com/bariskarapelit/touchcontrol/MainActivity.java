@@ -17,12 +17,17 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.twilio.video.CameraCapturer.CameraSource;
 import com.twilio.video.VideoView;
 
 import com.twilio.video.CameraCapturer;
 import com.twilio.video.LocalVideoTrack;
 import com.twilio.video.VideoRenderer;
 import com.twilio.video.VideoTextureView;
+
+import static com.twilio.video.CameraCapturer.CameraSource.BACK_CAMERA;
+import static com.twilio.video.CameraCapturer.CameraSource.FRONT_CAMERA;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -36,6 +41,8 @@ public class MainActivity extends AppCompatActivity
     private TextView tapForSnapshotTextView;
     private SnapshotVideoRenderer snapshotVideoRenderer;
     private LocalVideoTrack localVideoTrack;
+    ImageButton cameraChange;
+    CameraSource cameraCapturer ;
 
 
 
@@ -46,7 +53,7 @@ public class MainActivity extends AppCompatActivity
     ImageView imageView ;
 
 
-    int selectedImage = R.drawable.circlepng;
+    int selectedImage = R.drawable.ic_circle;
 
 
 
@@ -60,6 +67,8 @@ public class MainActivity extends AppCompatActivity
 
         imageView.setImageResource(R.drawable.circlepng);
         localVideoView = findViewById(R.id.local_video);
+        cameraCapturer= BACK_CAMERA;
+
 
         final FrameLayout frameLayout = findViewById(R.id.frame_layout1);
         LinearLayout linearLayout= findViewById(R.id.linearlayout);
@@ -67,6 +76,7 @@ public class MainActivity extends AppCompatActivity
         circleButton=findViewById(R.id.circle);
         dislikeButton=findViewById(R.id.dislike);
         likeButton=findViewById(R.id.like);
+        cameraChange=findViewById(R.id.cameraChange);
 
         if (!checkPermissionForCamera()) {
             requestPermissionForCamera();
@@ -75,7 +85,7 @@ public class MainActivity extends AppCompatActivity
         }
 
 
-        //Burdaki hangi viewi dinleyeceği hocam.
+
         MultiTouchControl multiTouchControl = new MultiTouchControl(frameLayout, new MultiTouchControl.ComponentView() {
             @Override
             public View onCreateComponent() {
@@ -89,6 +99,7 @@ public class MainActivity extends AppCompatActivity
         multiTouchControl.startListener();
 
         setupButtons();
+        setCameraChange();
     }
 
 
@@ -122,7 +133,7 @@ public class MainActivity extends AppCompatActivity
     }
     private void addVideo() {
         localVideoTrack = LocalVideoTrack.create(this, true, new CameraCapturer(this,
-                CameraCapturer.CameraSource.FRONT_CAMERA, null));
+                cameraCapturer, null));
         snapshotVideoRenderer = new SnapshotVideoRenderer(snapshotImageView);
         localVideoTrack.addRenderer((VideoRenderer) localVideoView);
         localVideoTrack.addRenderer(snapshotVideoRenderer);
@@ -132,6 +143,25 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+    private void setCameraChange()
+    {
+        cameraChange.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                if (cameraCapturer== FRONT_CAMERA) {
+                    Toast.makeText(MainActivity.this, "Camera Change BACK_CAMERA", Toast.LENGTH_LONG).show();
+                    cameraCapturer = BACK_CAMERA;
+                } else if (cameraCapturer== BACK_CAMERA)
+                {
+                    Toast.makeText(MainActivity.this, "Camera Change FRONT_CAMERA", Toast.LENGTH_LONG).show();
+                    cameraCapturer = FRONT_CAMERA;
+                }
+
+            }
+        });
+    }
     private void setupButtons(){
         circleButton.setOnClickListener(new View.OnClickListener()
         {
@@ -139,7 +169,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 Toast.makeText(MainActivity.this,"Circle",Toast.LENGTH_LONG).show();
-              selectedImage = R.drawable.circlepng;
+              selectedImage = R.drawable.ic_circle;
 
 
             }
@@ -151,7 +181,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 Toast.makeText(MainActivity.this,"Dislike",Toast.LENGTH_LONG).show();
-                selectedImage = R.drawable.dislike;
+                selectedImage = R.drawable.ic_dislike;
 
 
 
@@ -164,7 +194,7 @@ public class MainActivity extends AppCompatActivity
             {
                 Toast.makeText(MainActivity.this,"Like",Toast.LENGTH_LONG).show();
 
-                selectedImage = R.drawable.like;
+                selectedImage = R.drawable.ic_mavilike;
 
 
             }
