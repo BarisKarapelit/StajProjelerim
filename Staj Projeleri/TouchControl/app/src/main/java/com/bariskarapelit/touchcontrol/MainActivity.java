@@ -202,17 +202,12 @@ public class MainActivity extends Activity
 
             }
         });
-        likeButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Toast.makeText(MainActivity.this,"Like",Toast.LENGTH_LONG).show();
+        likeButton.setOnClickListener(view -> {
+            Toast.makeText(MainActivity.this,"Like",Toast.LENGTH_LONG).show();
 
-                selectedImage = R.drawable.ic_like3;
+            selectedImage = R.drawable.ic_like3;
 
 
-            }
         });
     }
 

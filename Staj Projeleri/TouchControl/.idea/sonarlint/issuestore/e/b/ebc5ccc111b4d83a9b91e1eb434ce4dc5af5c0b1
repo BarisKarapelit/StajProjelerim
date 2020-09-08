@@ -1,22 +1,23 @@
 
-V	java:S110 "<This class has 9 parents which is greater than 5 authorized.(ù ®Íúÿÿÿÿ
-F
-java:S16591"+Declare "dislikeButton" on a separate line.(€À’ıûÿÿÿÿ
-?
-java:S1604²"(Make this anonymous inner class a lambda(¬İùÔ
-C
-java:S1604Y"(Make this anonymous inner class a lambda(¿ÜŞ¾üÿÿÿÿ
-?
-java:S1604¾"(Make this anonymous inner class a lambda(ÅÍÏ
-?
-java:S1604¦"(Make this anonymous inner class a lambda(‹— ƒ
 V
-java:S1128"4Remove this unused import 'android.widget.TextView'.(„Ë‚ˆÿÿÿÿÿ8îªÎÓÆ.
+java:S1128"4Remove this unused import 'android.graphics.Camera'.(ÜÄ¡Ëøÿÿÿÿ8íÜÔüÆ.
+V
+java:S1128"4Remove this unused import 'android.widget.TextView'.(„Ë‚ˆÿÿÿÿÿ8îªÎÓÆ.
+?
+java:S1604µ"(Make this anonymous inner class a lambda(‹— ƒ
 C
-java:S16591"(Declare "likeButton" on a separate line.(€À’ıûÿÿÿÿ
-Z
-java:S1128"8Remove this unused import 'android.widget.LinearLayout'.(çîšçúÿÿÿÿ8êİÏÓÆ.
->
-java:S1604”"(Make this anonymous inner class a lambda(»£¢p
+java:S1604d"(Make this anonymous inner class a lambda(¿ÜŞ¾üÿÿÿÿ
+F
+java:S16593"+Declare "dislikeButton" on a separate line.(€À’ıûÿÿÿÿ
+?
+java:S1604Á"(Make this anonymous inner class a lambda(¬İùÔ
 G
-java:S1128",Remove this unused import 'android.net.Uri'.(òêû‘ıÿÿÿÿ
+java:S1128",Remove this unused import 'android.net.Uri'.(òêû‘ıÿÿÿÿ
+J
+java:S1604Z"(Make this anonymous inner class a lambda(Ïç¿Äøÿÿÿÿ8š·‡üÆ.
+Z
+java:S1128"8Remove this unused import 'android.widget.LinearLayout'.(çîšçúÿÿÿÿ8êİÏÓÆ.
+C
+java:S16593"(Declare "likeButton" on a separate line.(€À’ıûÿÿÿÿ
+b
+java:S1128"ERemove this unused import 'androidx.appcompat.app.AppCompatActivity'.(€¶£î8Õ™‹ıÆ.
