@@ -7,7 +7,9 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.pm.PackageManager;
+import android.graphics.Camera;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -29,7 +31,7 @@ import com.twilio.video.VideoTextureView;
 import static com.twilio.video.CameraCapturer.CameraSource.BACK_CAMERA;
 import static com.twilio.video.CameraCapturer.CameraSource.FRONT_CAMERA;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends Activity
 {
 
 
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity
 
     private VideoView localVideoView;
     private ImageView snapshotImageView;
-    private TextView tapForSnapshotTextView;
+
     private SnapshotVideoRenderer snapshotVideoRenderer;
     private LocalVideoTrack localVideoTrack;
     ImageButton cameraChange;
@@ -67,11 +69,11 @@ public class MainActivity extends AppCompatActivity
 
         imageView.setImageResource(R.drawable.circlepng);
         localVideoView = findViewById(R.id.local_video);
-        cameraCapturer= BACK_CAMERA;
+        cameraCapturer= FRONT_CAMERA;
 
 
         final FrameLayout frameLayout = findViewById(R.id.frame_layout1);
-        LinearLayout linearLayout= findViewById(R.id.linearlayout);
+
 
         circleButton=findViewById(R.id.circle);
         dislikeButton=findViewById(R.id.dislike);
@@ -84,6 +86,15 @@ public class MainActivity extends AppCompatActivity
             addVideo();
         }
 
+
+        cameraChange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                setCameraChange();
+
+            }
+        });
 
 
         MultiTouchControl multiTouchControl = new MultiTouchControl(frameLayout, new MultiTouchControl.ComponentView() {
@@ -99,7 +110,7 @@ public class MainActivity extends AppCompatActivity
         multiTouchControl.startListener();
 
         setupButtons();
-        setCameraChange();
+
     }
 
 
@@ -143,24 +154,28 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    private void setCameraChange()
+
+    public void setCameraChange()
     {
-        cameraChange.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
                 if (cameraCapturer== FRONT_CAMERA) {
                     Toast.makeText(MainActivity.this, "Camera Change BACK_CAMERA", Toast.LENGTH_LONG).show();
                     cameraCapturer = BACK_CAMERA;
+                    onDestroy();
+                    addVideo();
+
                 } else if (cameraCapturer== BACK_CAMERA)
                 {
                     Toast.makeText(MainActivity.this, "Camera Change FRONT_CAMERA", Toast.LENGTH_LONG).show();
                     cameraCapturer = FRONT_CAMERA;
+                    onDestroy();
+                    addVideo();
+
                 }
 
-            }
-        });
+
+
+
+
     }
     private void setupButtons(){
         circleButton.setOnClickListener(new View.OnClickListener()
