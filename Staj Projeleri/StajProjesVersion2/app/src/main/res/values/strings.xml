@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">StajProjesVersion2</string>
+    <string name="permissions_needed">Camera permission needed</string>
+    <string name="tap_video_snapshot">Tap video for snapshot</string>
+    <string name="video_snapshot">Video Snapshot</string>
+</resources>

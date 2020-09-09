@@ -1,4 +1,4 @@
-package com.bariskarapelit.touchcontrol;
+package com.bariskarapelit.stajprojesversion2;
 
 import android.annotation.SuppressLint;
 import android.os.Handler;

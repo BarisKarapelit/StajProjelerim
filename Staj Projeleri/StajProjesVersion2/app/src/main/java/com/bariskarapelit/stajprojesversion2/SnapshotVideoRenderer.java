@@ -1,4 +1,4 @@
-package com.bariskarapelit.touchcontrol;
+package com.bariskarapelit.stajprojesversion2;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

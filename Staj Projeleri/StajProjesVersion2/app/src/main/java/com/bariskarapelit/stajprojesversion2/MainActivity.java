@@ -1,4 +1,4 @@
-package com.bariskarapelit.touchcontrol;
+package com.bariskarapelit.stajprojesversion2;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,8 +31,7 @@ import com.twilio.video.VideoTextureView;
 import static com.twilio.video.CameraCapturer.CameraSource.BACK_CAMERA;
 import static com.twilio.video.CameraCapturer.CameraSource.FRONT_CAMERA;
 
-public class MainActivity extends Activity {
-
+public class MainActivity extends AppCompatActivity {
 
     private static final int CAMERA_PERMISSION_REQUEST_CODE = 100;
 
@@ -63,7 +62,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         imageView = new ImageView(this);
-        imageView.setImageResource(R.drawable.circlepng);
+        imageView.setImageResource(R.drawable.ic_yuvarlak_ici_bos);
         localVideoView = findViewById(R.id.local_video);
 
         cameraCapturer = FRONT_CAMERA;
@@ -77,7 +76,7 @@ public class MainActivity extends Activity {
         dislikeButton = findViewById(R.id.dislike);
         likeButton = findViewById(R.id.like);
         cameraChange = findViewById(R.id.cameraChange);
-//Kamera izinlerini kontrol edin. Android M'de gerekli.
+    //Kamera izinlerini kontrol edin. Android M'de gerekli.
         if (!checkPermissionForCamera())
         {
             requestPermissionForCamera();
@@ -126,7 +125,7 @@ public class MainActivity extends Activity {
 
     }
 
-//Camera izinlerini override metodları
+    //Camera izinlerini override metodları
     // izin kontrolleri yapılıyor ve ona göre ekrana camera nın görüntüsü bastırıyor
     @Override
     public void onRequestPermissionsResult(int requestCode,
@@ -229,7 +228,7 @@ public class MainActivity extends Activity {
         int resultCamera = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
         return resultCamera == PackageManager.PERMISSION_GRANTED;
     }
-        //Uygulamasını ilk kurulunda  açılan için ekranlarını bastıyor
+    //Uygulamasını ilk kurulunda  açılan için ekranlarını bastıyor
 
     private void requestPermissionForCamera() {
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA},

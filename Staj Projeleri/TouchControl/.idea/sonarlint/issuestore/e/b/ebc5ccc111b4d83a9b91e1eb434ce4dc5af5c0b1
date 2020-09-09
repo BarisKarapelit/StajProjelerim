@@ -1,23 +1,21 @@
 
-V
-java:S1128"4Remove this unused import 'android.graphics.Camera'.(ÜÄ¡Ëøÿÿÿÿ8íÜÔüÆ.
+D
+java:S1604Ñ"(Make this anonymous inner class a lambda(Œ©ß³ùÿÿÿÿ
 V
 java:S1128"4Remove this unused import 'android.widget.TextView'.(„Ë‚ˆÿÿÿÿÿ8îªÎÓÆ.
-?
-java:S1604µ"(Make this anonymous inner class a lambda(‹— ƒ
 C
-java:S1604d"(Make this anonymous inner class a lambda(¿ÜŞ¾üÿÿÿÿ
-F
-java:S16593"+Declare "dislikeButton" on a separate line.(€À’ıûÿÿÿÿ
-?
-java:S1604Á"(Make this anonymous inner class a lambda(¬İùÔ
+java:S16590"(Declare "likeButton" on a separate line.(€À’ıûÿÿÿÿ
 G
 java:S1128",Remove this unused import 'android.net.Uri'.(òêû‘ıÿÿÿÿ
-J
-java:S1604Z"(Make this anonymous inner class a lambda(Ïç¿Äøÿÿÿÿ8š·‡üÆ.
-Z
-java:S1128"8Remove this unused import 'android.widget.LinearLayout'.(çîšçúÿÿÿÿ8êİÏÓÆ.
-C
-java:S16593"(Declare "likeButton" on a separate line.(€À’ıûÿÿÿÿ
+?
+java:S1604Ç"(Make this anonymous inner class a lambda(’£˜Œ
+F
+java:S16590"+Declare "dislikeButton" on a separate line.(€À’ıûÿÿÿÿ
 b
 java:S1128"ERemove this unused import 'androidx.appcompat.app.AppCompatActivity'.(€¶£î8Õ™‹ıÆ.
+E
+java:S1604g"(Make this anonymous inner class a lambda(Ê¢ÂÖ8Ò­£¡Ç.
+Z
+java:S1128"8Remove this unused import 'android.widget.LinearLayout'.(çîšçúÿÿÿÿ8êİÏÓÆ.
+J
+java:S1604["(Make this anonymous inner class a lambda(Ïç¿Äøÿÿÿÿ8š·‡üÆ.
