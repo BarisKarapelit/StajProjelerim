@@ -9,3 +9,5 @@ P
 Napp/src/main/java/com/bariskarapelit/stajprojesversion2/MultiTouchControl.java,3\2\325530a8344e6ad9c780744723571307f2f6ec4a
 y
 Iapp/src/main/java/com/bariskarapelit/stajprojesversion2/MainActivity.java,b\d\bd4c59f74e5762f1087c7730e4cd8087999b816a
+‚
+Rapp/src/main/java/com/bariskarapelit/stajprojesversion2/SnapshotVideoRenderer.java,1\7\17e977ba3bc208396bbfbbf31afe0e9868358ceb
