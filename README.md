@@ -1,4 +1,4 @@
-# StajProjelerim
+# Staj Raporum
 
  
 
@@ -30,95 +30,6 @@ TRAINING DATE	: 01/08/2020 – 14/09/2020
 PHONE NO		:  +90 541 925 7074
 WEB ADDRESS	: http://www.invaco.net/
 
-Table of Contents
-1	INTRODUCTION	4
-2	INFORMATION ABOUT THE COMPANY	5
-2.1	Aim And Establishment Of The Company	5
-2.1.1	Establishment Of The Company	5
-2.1.2	Position Of Company In Turkey	6
-2.1.3	Types Of Services Provided	6
-2.1.3.1 Digital Transformation and Internet Of Things Projects	6
-2.1.3.2 Cloud Based Web / Server Applications	7
-2.1.3.3 Distributed Architecture High Performance Applications	7
-2.1.3.4 Mobil Applications	7
-2.1.3.5 R&D Projects	7
-2.1.3.5.1 Io Track	8
-2.1.3.5.2 Wi Service	8
-2.2	Organizational Background of the Company	8
-2.2.1	Departmental & Personnel Background	8
-2.2.2	Organizational Chart of The Company	10
-3	WORK EXPERIENCE	12
-3.1	Problem Definition	12
-3.1.1	Programming Languages	13
-3.1.2      Technologic Tools	13
-3.2	Work Done	14
-3.2.1	Project 1 : An application that assigns mouse functions to the joystick and game controller via Python	16
-3.2.2	Project 2 : An application that takes video images on the Android platform and broadcasts it on the screen	17
-3.3	Limitations and Experience Gained	17
-3.3.1	Problems Faced	17
-3.3.2	What was missing/lacking?	17
-3.3.3	How could you have done your work better?	18
-3.3.4	How could you have gained more experience?	18
-3.3.5	What did you learn in summary?	18
-3.3.6	How will this experience help you in the future?	18
-4	CONCLUSION	20
-5	REFERENCES	21
-6	APPENDIX	22
-
-List of Figures 
-
-
-1	Figure 2.1 The Logo Of Invaco Teknoloji A.Ş.	5
-2	Figure 2.2 Educational Level of of INVACO Personnels	9
-3	Figure 2.3 Organizational Chart of INVACO	11
-4	Figure 3.1 Usage of Phyton in Application Building Process	22
-5	Figure 3.2 Main Activity	26
-6	Figure 3.3 MultiTouch Control	33
-7	Figure 3.4 The Failure Faced in 2nd Project on Stackoverflow.com Account	38
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-List of Tables
-
-
-
-1	Table 2.1 Departmental Distribution of Employees	9
-2	Table 3.1 Summary of Daily Report of Internships	14
 
 
 
