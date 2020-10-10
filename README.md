@@ -2,14 +2,14 @@
 
  
 
-                                                                      CYPRUS INTERNATIONAL UNIVERSITY
-                                                                          FACULTY OF ENGINEERING
-                                                                  COMPUTER & INFORMATION SYSTEMS ENGINEERING
+      CYPRUS INTERNATIONAL UNIVERSITY
+ 	FACULTY OF ENGINEERING
+ COMPUTER & INFORMATION SYSTEMS ENGINEERING
 
                                     
-                                                                                 ISYE300
-                                                                INFORMATION REPORT ON SUMMER TRAINING COURSE
-                                                                                02/10/2020
+              ISYE300
+INFORMATION REPORT ON SUMMER TRAINING COURSE
+  	    02/10/2020
 
 
 
